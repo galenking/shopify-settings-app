@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @setting.name %>
+</p>
+
+<p>
+  <b>Theme:</b>
+  <%= @setting.theme %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @setting.field_type %>
+</p>
+
+<p>
+  <b>Properties:</b>
+  <%= @setting.properties %>
+</p>
+
+
+<%= link_to 'Edit', edit_setting_path(@setting) %> |
+<%= link_to 'Back', settings_path %>

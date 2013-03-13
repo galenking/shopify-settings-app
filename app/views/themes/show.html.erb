@@ -1,0 +1,23 @@
+<h1><%= @theme.name %> theme settings</h1>
+
+<p id="notice"><%= notice %></p>
+
+<pre>
+&lt;table&gt;
+  <% @theme.settings.each do |s| %>
+  &lt;tr&gt;
+    &lt;th&gt;
+      &lt;label for="<%= s.key %>"&gt;<%= s.name %>&lt;/label&gt;
+    &lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;
+<%= render "settings/field_types/#{s.field_type}", f: s %>
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  <% end %>
+&lt;/table&gt;
+</pre>
+
+<%= link_to 'Edit', edit_theme_path(@theme), class: 'btn' %>
+<%= link_to 'Done', themes_path, class: 'btn btn-link' %>

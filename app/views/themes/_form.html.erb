@@ -1,0 +1,25 @@
+<%= simple_form_for(@theme, :html => {:class => 'form-horizontal'}) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="control-group">
+    <%= f.input :name %>
+    <%= f.association :user %>
+  </div>
+  
+  <h2>Settings</h2>
+  
+  <%= f.fields_for :settings do |builder| %>
+    <%= render 'setting_fields', f: builder %>
+  <% end %>
+  
+  <div class="control-group">
+    <div class="controls">
+      <%= link_to_add_fields "Add setting", f, :settings %>
+    </div>
+  </div>
+  
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <%= link_to 'Cancel', themes_path, class: 'btn btn-link' %>
+  </div>
+<% end %>

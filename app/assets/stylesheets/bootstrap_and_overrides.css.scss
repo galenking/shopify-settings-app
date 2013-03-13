@@ -1,0 +1,39 @@
+@import "bootstrap";
+body { padding-top: 60px; }
+@import "bootstrap-responsive";
+@import "font-awesome";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+}
+
+h1 {
+  margin-top: 20px;
+  font-size: $baseFontSize * 2;
+}
+
+h2 {
+  font-size: $baseFontSize * 1.8;
+}
+
+h3 {
+  font-size: $baseFontSize * 1.6;
+}
+
+h4 {
+  font-size: $baseFontSize * 1.4;
+}
+
+h5 {
+  font-size: $baseFontSize * 1.2;
+}
+
+h6 {
+  font-size: $baseFontSize;
+}
