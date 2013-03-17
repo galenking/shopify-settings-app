@@ -1,0 +1,5 @@
+        &lt;select name="<%= f.key %>" id="<%= f.key %>" class="font"&gt;
+<% f.values.each do |v| %>
+          &lt;option value="<%= v.name %>" /&gt;<%= v.name %>&lt;/option&gt;
+<% end %>
+        &lt;/select&gt;

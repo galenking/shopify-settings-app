@@ -1,20 +1,35 @@
 <div class="field_wrapper">
   <div class="control-group">
     <div class="control-label">
-      <%= f.label :name, "Setting name" %>
+      <%= f.label :name, "Setting" %>
     </div>
     <div class="controls">
-      <%= f.text_field :name %>
-      
       <%= f.select :field_type, %w[text textarea checkbox radio color fonts section] %>
       
-      <%= link_to_add_fields "New value", f, :values %>
+      <%= f.text_field :name %>
+      
+      <% o = f.object %>
+      
+      <% unless o.field_type == nil %>
+                              
+      <%= f.fields_for :properties, OpenStruct.new(o.properties) do |builder| %>
+        <%= render "settings/properties/#{o.field_type}", f: builder %>
+      <% end %>
+            
+      <% end %>
+                        
       <%= f.hidden_field :_destroy %>
       
       <%= link_to '#', class: "btn remove_fields" do %>
       <i class="icon-trash"></i>
       <% end %>
       <%= f.hidden_field :_destroy %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <div class="controls">
+      <%= link_to_add_fields "New value", f, :values %>
     </div>
   </div>
 

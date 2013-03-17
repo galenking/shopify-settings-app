@@ -5,16 +5,18 @@
 <pre>
 &lt;table&gt;
   <% @theme.settings.each do |s| %>
+  <% if s.field_type == "section" %>
+&lt;/table&gt;
+<%= render "settings/field_types/#{s.field_type}", f: s %>
+&lt;table&gt;
+  <% else %>
   &lt;tr&gt;
-    &lt;th&gt;
-      &lt;label for="<%= s.key %>"&gt;<%= s.name %>&lt;/label&gt;
-    &lt;/th&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
+    &lt;th&gt;&lt;label for="<%= s.key %>"&gt;<%= s.name %>&lt;/label&gt;&lt;/th&gt;
     &lt;td&gt;
 <%= render "settings/field_types/#{s.field_type}", f: s %>
     &lt;/td&gt;
   &lt;/tr&gt;
+  <% end %>
   <% end %>
 &lt;/table&gt;
 </pre>

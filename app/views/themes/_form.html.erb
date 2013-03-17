@@ -3,20 +3,23 @@
 
   <div class="control-group">
     <%= f.input :name %>
-    <%= f.association :user %>
   </div>
+  
+  <% if params[:action] == 'edit' %>
   
   <h2>Settings</h2>
   
-  <%= f.fields_for :settings do |builder| %>
+  <%= f.fields_for :settings, @theme.settings do |builder| %>
     <%= render 'setting_fields', f: builder %>
   <% end %>
-  
+    
   <div class="control-group">
     <div class="controls">
-      <%= link_to_add_fields "Add setting", f, :settings %>
+      <%= link_to_add_fields "New setting", f, :settings %>
     </div>
   </div>
+  
+  <% end %>
   
   <div class="form-actions">
     <%= f.button :submit %>
